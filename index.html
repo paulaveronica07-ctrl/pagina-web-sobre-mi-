@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paula Morillo - Portafolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header y Navegación -->
+    <header>
+        <nav class="navbar">
+            <a href="#" class="logo">Mi Portafolio</a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#acerca">Acerca de</a></li>
+                <li><a href="#habilidades">Habilidades</a></li>
+                <li><a href="#proyectos">Proyectos</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+            </ul>
+            <div class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Sección Inicio -->
+        <section id="inicio" class="hero">
+            <div class="hero-content">
+                <h1>¡Hola! Soy Paula Morillo</h1>
+                <p> Jugadora de flag football y apasionada por la programación</p>
+                <a href="#contacto" class="btn-primary">¡Contáctame!</a>
+            </div>
+        </section>
+
+        <!-- Sección Acerca de Mí -->
+        <section id="acerca" class="about">
+            <h2>Acerca de Mí</h2>
+            <div class="about-container">
+                <div class="about-img">
+                    <img src="img/imagen.png" alt="Foto de perfil">
+                </div>
+                <div class="about-text">
+                    <p>Soy una jugadora de flag football, me gusta el depórte y los torneos nacionales, me gusta la carrera de ing.mecatronica, busco crear maquinas que ayuden a las personas , tambien crear paginas web para lograr dar informacion más concisa de lo que desarollo.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Habilidades -->apasiona
+        <section id="habilidades" class="skills">
+            <h2>Mis Habilidades</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-info">
+                        <span>HTML</span>
+                        <span>95%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-info">
+                        <span>CSS</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-info">
+                        <span>JavaScript</span>
+                        <span>83%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-info">
+                        <span>Responsive Design</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="progress-bar"><div class="progress" style="width: 95%;"></div></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Proyectos -->
+        <section id="proyectos" class="projects">
+            <h2>Mis Proyectos</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">Proyecto 1</div>
+                    <div class="project-info">
+                        <h3>Sitio Web de Salud </h3>
+                        <p>Un sitio web donde se proporciona información sobre salud y bienestar.</p>
+                        <a href="https://biosync-bs.netlify.app/" target="_blank">Ver proyecto →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">Proyecto 2</div>
+                    <div class="project-info">
+                        <h3>Una aplicacion para deportistas </h3>
+                        <p>Una aplicación web que permite a los usuarios gestionar sus entrenamientos y estadísticas con funcionalidades avanzadas de JavaScript.</p>
+                        <a href="https://app-bs.netlify.app/" target="_blank">Ver proyecto →</a>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">Proyecto 3</div>
+                    <div class="project-info">
+                        <h3>Aplicacion de cuidado de niños y adultos</h3>
+                        <p>Una aplicación web dedicada al cuidado de niños y adultos mayores, con funcionalidades para gestionar su salud y bienestar.</p>
+                        <a href="https://app-bs.netlify.app/" target="_blank">Ver proyecto →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sección Contacto -->
+        <section id="contacto" class="contact">
+            <h2>Contáctame</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <p><strong>Email:</strong> morillopaula@gmail.com</p>
+                    <p><strong>Teléfono:</strong> +593 98 524 3769</p>
+                    <p><strong>Ubicación:</strong> Quito, Ecuador</p>
+                </div>
+                <form id="contactForm" class="contact-form">
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje</label>
+                        <textarea id="mensaje" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">Enviar Mensaje</button>
+                    <p id="formMessage" class="form-msg"></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="social-links">
+            <a href="#">LinkedIn</a>
+            <a href="#">GitHub</a>
+            <a href="#">Twitter</a>
+        </div>
+        <p>© 2026 Mi Portafolio. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
