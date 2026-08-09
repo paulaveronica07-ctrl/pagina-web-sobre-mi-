@@ -1,6 +1,6 @@
 :root {
-    --primary-color: #0e0497e1;       /* Color principal  */
-    --primary-dark: #04a1dfc9;        /* Color más oscuro para los hovers */
+    --primary-color: #0f21c594;       /* Color principal  */
+    --primary-dark: #028fc7;        /* Color más oscuro para los hovers */
     --bg-color: #f8fafc;            /* Color de fondo general de la página */
     --text-color: #1e293b;          /* Color de los textos principales */
     --text-light: #64748b;          /* Color de textos secundarios */
@@ -82,7 +82,7 @@ header {
 /* Hero Section & Parallax Effect */
 .hero {
     height: 90vh;
-    background: linear-gradient(135deg, #5b21b6, #7c3aed);
+    background: linear-gradient(135deg, #231950, #034e8b);
     color: var(--white);
     display: flex;
     align-items: center;
@@ -123,7 +123,7 @@ header {
 }
 
 .btn-primary {
-    background-color: #059669; /* Botón de color verde esmeralda llamativo */
+    background-color: #0175e2; /* Botón de color verde esmeralda llamativo */
     color: var(--white);
     padding: 0.75rem 2rem;
     border: none;
@@ -137,7 +137,7 @@ header {
 }
 
 .btn-primary:hover {
-    background-color: #047857;
+    background-color: #3d11db;
 }
 
 /* Sections General */
@@ -235,7 +235,7 @@ section h2 {
 
 .project-img {
     height: 180px;
-    background: linear-gradient(135deg, #7c3aed, #db2777);
+    background: linear-gradient(135deg, #0d0363, #2b78dd);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -366,4 +366,11 @@ footer {
     .about-img img {
         margin: 0 auto;
     }
+}
+.progress {
+    height: 100%;
+    background-color: var(--primary-color);
+    border-radius: 4px;
+    width: 0%; /* Inicia en 0 para la animación */
+    transition: width 1.8s ease-in-out;
 }

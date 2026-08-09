@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", () => {
             navLinks.classList.toggle("active");
         });
 
-        // Cerrar menú al hacer clic en un enlace
         document.querySelectorAll(".nav-links a").forEach(link => {
             link.addEventListener("click", () => {
                 navLinks.classList.remove("active");
@@ -39,20 +38,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 return;
             }
 
-            // Si todo está correcto
             formMessage.style.color = "green";
             formMessage.textContent = "¡Mensaje enviado con éxito! Gracias por contactarme.";
             
-            // Limpiar formulario
             contactForm.reset();
 
-            // Limpiar mensaje después de 4 segundos
             setTimeout(() => {
                 formMessage.textContent = "";
             }, 4000);
         });
     }
 
+    // 3. Efecto Parallax en el Hero con el mouse
     const heroSection = document.querySelector('.hero');
     const heroBg = document.querySelector('.hero-bg-animated');
 
@@ -71,4 +68,36 @@ document.addEventListener("DOMContentLoaded", () => {
             heroBg.style.transform = `translate(${moveX}px, ${moveY}px)`;
         });
     }
+
+    // 4. Animación de las barras de habilidades al hacer scroll
+    const skillCards = document.querySelectorAll('.skill-card');
+    
+    skillCards.forEach(card => {
+        const progressBar = card.querySelector('.progress');
+        if (progressBar) {
+            progressBar.style.width = '0%';
+        }
+    });
+
+    const animateSkills = () => {
+        skillCards.forEach(card => {
+            const cardPosition = card.getBoundingClientRect().top;
+            const screenPosition = window.innerHeight / 1.1;
+            
+            if (cardPosition < screenPosition) {
+                const progressBar = card.querySelector('.progress');
+                const percentSpan = card.querySelectorAll('.skill-info span')[1]; 
+                
+                if (progressBar && percentSpan) {
+                    const targetWidth = percentSpan.textContent; 
+                    setTimeout(() => {
+                        progressBar.style.width = targetWidth; 
+                    }, 100);
+                }
+            }
+        });
+    };
+
+    window.addEventListener('scroll', animateSkills);
+    animateSkills(); 
 });
