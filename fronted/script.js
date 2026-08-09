@@ -3,16 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
     const menuToggle = document.getElementById("menuToggle");
     const navLinks = document.getElementById("navLinks");
 
-    menuToggle.addEventListener("click", () => {
-        navLinks.classList.toggle("active");
-    });
-
-    // Cerrar menú al hacer clic en un enlace
-    document.querySelectorAll(".nav-links a").forEach(link => {
-        link.addEventListener("click", () => {
-            navLinks.classList.remove("active");
+    if (menuToggle && navLinks) {
+        menuToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
         });
-    });
+
+        // Cerrar menú al hacer clic en un enlace
+        document.querySelectorAll(".nav-links a").forEach(link => {
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+            });
+        });
+    }
 
     // 2. Validación de formulario en tiempo real
     const contactForm = document.getElementById("contactForm");
@@ -21,63 +23,53 @@ document.addEventListener("DOMContentLoaded", () => {
     const mensajeInput = document.getElementById("mensaje");
     const formMessage = document.getElementById("formMessage");
 
-    contactForm.addEventListener("submit", (e) => {
-        e.preventDefault();
+    if (contactForm) {
+        contactForm.addEventListener("submit", (e) => {
+            e.preventDefault();
 
-        if (nombreInput.value.trim() === "" || emailInput.value.trim() === "" || mensajeInput.value.trim() === "") {
-            formMessage.style.color = "red";
-            formMessage.textContent = "Por favor, completa todos los campos.";
-            return;
-        }
+            if (nombreInput.value.trim() === "" || emailInput.value.trim() === "" || mensajeInput.value.trim() === "") {
+                formMessage.style.color = "red";
+                formMessage.textContent = "Por favor, completa todos los campos.";
+                return;
+            }
 
-        if (!emailInput.value.includes("@") || !emailInput.value.includes(".")) {
-            formMessage.style.color = "red";
-            formMessage.textContent = "Por favor, introduce un correo electrónico válido.";
-            return;
-        }
+            if (!emailInput.value.includes("@") || !emailInput.value.includes(".")) {
+                formMessage.style.color = "red";
+                formMessage.textContent = "Por favor, introduce un correo electrónico válido.";
+                return;
+            }
 
-        // Si todo está correcto
-        formMessage.style.color = "green";
-        formMessage.textContent = "¡Mensaje enviado con éxito! Gracias por contactarme.";
-        
-        // Limpiar formulario
-        contactForm.reset();
+            // Si todo está correcto
+            formMessage.style.color = "green";
+            formMessage.textContent = "¡Mensaje enviado con éxito! Gracias por contactarme.";
+            
+            // Limpiar formulario
+            contactForm.reset();
 
-        // Limpiar mensaje después de 4 segundos
-        setTimeout(() => {
-            formMessage.textContent = "";
-        }, 4000);
-    });
-});
+            // Limpiar mensaje después de 4 segundos
+            setTimeout(() => {
+                formMessage.textContent = "";
+            }, 4000);
+        });
+    }
 
-const heroSection = document.querySelector('.hero');
-const heroBackground = document.querySelector('.hero::before'); 
+    // 3. Efecto Parallax en el Hero con el mouse
+    const heroSection = document.querySelector('.hero');
+    const heroBg = document.querySelector('.hero-bg-animated');
 
-heroSection.addEventListener('mousemove', (e) => {
-   
-    const { offsetWidth: width, offsetHeight: height } = heroSection;
-    const { offsetX, offsetY } = e;
+    if (heroSection && heroBg) {
+        heroSection.addEventListener('mousemove', (e) => {
+            const { width, height } = heroSection.getBoundingClientRect();
+            const { clientX, clientY } = e;
+            const { left, top } = heroSection.getBoundingClientRect();
 
-    const moveX = (offsetX / width) - 0.5;
-    const moveY = (offsetY / height) - 0.5;
+            const mouseX = clientX - left;
+            const mouseY = clientY - top;
 
-    const walk = 30; 
+            const moveX = (mouseX / width - 0.5) * 40; 
+            const moveY = (mouseY / height - 0.5) * 40; 
 
-});
-
-const heroSection = document.querySelector('.hero');
-const heroBg = document.querySelector('.hero-bg-animated');
-
-heroSection.addEventListener('mousemove', (e) => {
-    const { width, height } = heroSection.getBoundingClientRect();
-    const { clientX, clientY } = e;
-    const { left, top } = heroSection.getBoundingClientRect();
-
-    const mouseX = clientX - left;
-    const mouseY = clientY - top;
-
-    const moveX = (mouseX / width - 0.5) * 40; 
-    const moveY = (mouseY / height - 0.5) * 40; 
-
-    heroBg.style.transform = `translate(${moveX}px, ${moveY}px)`;
+            heroBg.style.transform = `translate(${moveX}px, ${moveY}px)`;
+        });
+    }
 });
