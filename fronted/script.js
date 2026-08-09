@@ -53,7 +53,6 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // 3. Efecto Parallax en el Hero con el mouse
     const heroSection = document.querySelector('.hero');
     const heroBg = document.querySelector('.hero-bg-animated');
 
