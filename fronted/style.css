@@ -374,3 +374,15 @@ footer {
     width: 0%; /* Inicia en 0 para la animación */
     transition: width 1.8s ease-in-out;
 }
+
+@media (max-width: 768px) {
+    .nav-links {
+        display: none; 
+        flex-direction: column;
+        
+    }
+    
+    .hero h1 {
+        font-size: 2rem; 
+    }
+}
