@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", () => {
     contactForm.addEventListener("submit", (e) => {
         e.preventDefault();
 
-        // Validaciones básicas de campos vacíos o email inválido
         if (nombreInput.value.trim() === "" || emailInput.value.trim() === "" || mensajeInput.value.trim() === "") {
             formMessage.style.color = "red";
             formMessage.textContent = "Por favor, completa todos los campos.";
@@ -49,4 +48,36 @@ document.addEventListener("DOMContentLoaded", () => {
             formMessage.textContent = "";
         }, 4000);
     });
+});
+
+const heroSection = document.querySelector('.hero');
+const heroBackground = document.querySelector('.hero::before'); 
+
+heroSection.addEventListener('mousemove', (e) => {
+   
+    const { offsetWidth: width, offsetHeight: height } = heroSection;
+    const { offsetX, offsetY } = e;
+
+    const moveX = (offsetX / width) - 0.5;
+    const moveY = (offsetY / height) - 0.5;
+
+    const walk = 30; 
+
+});
+
+const heroSection = document.querySelector('.hero');
+const heroBg = document.querySelector('.hero-bg-animated');
+
+heroSection.addEventListener('mousemove', (e) => {
+    const { width, height } = heroSection.getBoundingClientRect();
+    const { clientX, clientY } = e;
+    const { left, top } = heroSection.getBoundingClientRect();
+
+    const mouseX = clientX - left;
+    const mouseY = clientY - top;
+
+    const moveX = (mouseX / width - 0.5) * 40; 
+    const moveY = (mouseY / height - 0.5) * 40; 
+
+    heroBg.style.transform = `translate(${moveX}px, ${moveY}px)`;
 });
